@@ -1,35 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {React} from 'react';
+ import { ActivityIndicator, MD2Colors } from 'react-native-paper';
+ 
+
 
 let i=1;
 const element = ( ) =>{
    return <h1>{
      i==1 ? "Condition True":"Condition False"}</h1> ;
 };
-ReactDom.render(element,document.getElementById('root'));
  
-export default function App() {
-  return (
-    <View style={styles.container}>
-     <Text style={styles.innerTextStyle}>{getFullNames("Keerthiga","Andorid Developer","PZ025")}</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-
+const App = () => (
+  <View style={[styles.container, styles.horizontal]}>
+    <ActivityIndicator />
+    <ActivityIndicator size="large" />
+    <ActivityIndicator size="small" color="#0000ff" />
+    <ActivityIndicator size="large" color="#00ff00" />
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
   },
-  innerTextStyle:{
-    padding:10,
-  backgroundColor:'red',
-  fontSize:20,
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
   },
 });
+
+
