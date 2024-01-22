@@ -1,35 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import {React} from 'react';
- import { ActivityIndicator, MD2Colors } from 'react-native-paper';
- 
+import { useEffect, useState } from 'react';
+import { LinearGradient } from 'expo-linear-gradient'
+import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import {appName,APIURL,appHeaderName,IMSTitle} from "./variables/globalvariables";
+import styles from './css/splashcss' ;
+import {  Image } from 'react-native';
 
 
-let i=1;
-const element = ( ) =>{
-   return <h1>{
-     i==1 ? "Condition True":"Condition False"}</h1> ;
+///accessability info
+const  App = () =>{  
+  
+  return (
+    <View style={styles.container}> 
+     
+        <Text style={styles.text}>{appHeaderName}</Text>
+        <Image  style={styles.image} source={require('./assets/logo.jpg')} resizeMode="contain"/>
+        <Text style={styles.text}>{IMSTitle}</Text>
+
+     </View>
+  );
 };
+
  
-const App = () => (
-  <View style={[styles.container, styles.horizontal]}>
-    <ActivityIndicator />
-    <ActivityIndicator size="large" />
-    <ActivityIndicator size="small" color="#0000ff" />
-    <ActivityIndicator size="large" color="#00ff00" />
-  </View>
-);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-  },
-});
+export default  App;
 
 
+
+
+
+
+ 
